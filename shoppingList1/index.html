@@ -1,0 +1,155 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+    }
+    
+    body{
+        background-color: beige;
+    }
+
+    #header {
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 3px solid black;
+    }
+
+
+    #header h1 {
+        font-size: 5em;
+    }
+
+    #content {
+        height: 85%;
+
+    }
+
+    #formContainer {
+        width: 30%;
+        height: 100%;
+        display: inline-block;
+        vertical-align: top; /* Aligns the top edges of inline-block elements */
+        border-right: 4px solid black;
+        
+    }
+
+    #itemsContainer {
+        width: 69%;
+        height: 100%;
+        display: inline-block;
+        vertical-align: top; /* Aligns the top edges of inline-block elements */
+        padding: 5%;
+    }
+
+    #form {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+        margin-left: 20%;
+        font-size: 1.7em;
+        white-space: nowrap;
+    }
+    #form input {
+        font-size: x-large;
+        margin-top: 3%
+
+    }
+
+    #form button {
+        font-size: 1em;
+        margin-top: 17%;
+    }
+    #prioritySelections {
+        margin-top: 4%;
+    }
+
+    .item{
+        display: inline-block;
+        width: 20%;
+        border: 3px solid black;
+        min-height: 20%;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 10px 5px 5px black;
+        margin: 1%;
+    }
+
+    .item img {
+        width: 100%;
+        margin-bottom: 5%;
+        max-height: 150px;
+    }
+    .item h1 {
+        width: 100%;
+        margin-bottom: 5%;
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="header">
+        <h1>Shopping list</h1>
+    </div>
+    <div id="content">
+        <div id="formContainer">
+            <div id="form">
+                <h1>Item Image Url</h1>
+                <input id="imageLink" placeholder="" type="text"/>
+                <br>
+                <h1>Item description</h1>
+                <input id="description" type="text"/> 
+                <br>
+                <h1>Item Price</h1>
+                <input id="price" type="text"/> 
+                <br>
+                <!-- <h1>Item link</h1>
+                <input id="itemLink" type="text"/> -->
+                <!-- <h1>Priority</h1>
+                <div id="prioritySelections">                
+                    <input type="radio" name="priority" value="high" checked />
+                    <label for="high">High</label>
+     
+                    <input type="radio" name="priority" value="medium" />
+                    <label for="dewey">Medium</label>
+
+                    <input type="radio" name="priority" value="low" />
+                    <label for="louie">Low</label>
+                  </div> -->
+                <button onclick='
+                    let itemImageInputHTML = document.getElementById("imageLink")
+                    let itemDescriptionInputHTML = document.getElementById("description")
+                    let itemPriceInputHTML = document.getElementById("price")
+
+                    let imageLink = itemImageInputHTML.value
+                    let description = itemDescriptionInputHTML.value
+                    let price = itemPriceInputHTML.value
+
+                    console.log(imageLink)
+                    console.log(description)
+                    console.log(price)
+
+                    let itemsContainerHTML = document.getElementById("itemsContainer")
+                    itemsContainerHTML.innerHTML += `<div class="item">
+                                                <h1>${description}</h1>
+                                                <img src=${imageLink}/>
+                                                <h1>$${price}</h1>
+                                            </div>`
+                '>Add item</button>
+            </div>
+        </div>
+        <div id="itemsContainer">
+                <div class="item">
+                    <h1>Nike Shoe</h1>
+                    <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1556130360-vaporfly-4-flyknit-running-shoe-v7G3FB.jpg?crop=0.915xw:0.488xh;0.0449xw,0.322xh"/>
+                    <h1>$10</h1>
+                </div>
+
+        </div>
+    </div>
+</body>
